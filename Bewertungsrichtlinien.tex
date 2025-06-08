@@ -1,0 +1,466 @@
+\documentclass[a4paper, 11pt,usegeometry]{scrartcl}
+
+\usepackage[T1]{fontenc} 	% Use T1 font encoding
+\usepackage{lmodern} 		% Better looking font package than computer modern
+\usepackage{graphicx} 		% Include graphics 
+\usepackage{hyperref} 		% For PDF links, toc, etc.
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+\usepackage{amsmath}
+\usepackage[german]{datetime2}
+\usepackage{float}
+%\usepackage{pdflscape}
+\usepackage[]{typearea}
+\usepackage[]{geometry}
+\usepackage[table, xcdraw]{xcolor}
+%\usepackage{lua-visual-debug}
+
+\usepackage{lipsum}
+
+\newcommand*{\useportrait}{%
+  \clearpage
+  \KOMAoptions{paper=portrait,DIV=current}
+  \newgeometry{hmargin=2cm,
+               vmargin=2cm, 
+               headheight=1cm}
+  \setlength{\headheight}{2cm}
+%  \fancyhfoffset{0pt}% <- recalculate head and foot width for fancyhdr
+}
+\newcommand*{\uselandscape}{
+  \clearpage
+  \KOMAoptions{paper=landscape,DIV=current}
+  \newgeometry{hmargin=2cm,
+               vmargin=2cm,
+               headheight=1cm}
+  \setlength{\headheight}{2cm}
+  \fancyhfoffset{0pt}% recalculate head and foot width for fancyhdr
+}
+
+% Set smaller page margins
+\geometry{hmargin=2cm,
+          vmargin=2cm,
+          headheight=1cm}
+% Use Sans-Serif font as default
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+% Use DD.MM.YYYY as date format
+\DTMsetdatestyle{ddmmyyyy}
+\DTMsetup{datesep={.}}
+
+% Use fancy headers (fancyhdr package)
+\pagestyle{fancy}
+% Enable headers on pages containing a new chapter (etoolbox package)
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+% Distance between header content and horizontal line
+\renewcommand{\headruleskip}{2mm}
+% clear existing header/footer entries
+\fancyhf{}
+% Header and footer definitions
+\fancyhead[L]{\large CAuDri-Challenge 2025\\
+              \large\Subtitle}
+\fancyhead[R]{\includegraphics[width=5cm]{graphics/caudri_logo_no_border.jpg}\hspace{-5mm}
+              \vspace{-2mm}}
+\fancyfoot[L]{Page \thepage}
+\setlength{\headheight}{2cm}
+
+\setlist{itemsep=0.2ex}
+
+% No indentation of new paragraphs
+\setlength{\parindent}{0pt}
+
+\title{Bewertungsrichtlinien für Schiedsrichter} 
+\subtitle{Bewertungsrichtlinien}
+\author{Max Weißer}
+\date{\today} 
+
+
+\makeatletter\let\Title\@title\let\Subtitle\@subtitle\makeatother
+
+\begin{document}
+\begin{center}
+	{\LARGE\bfseries\Title\\}		% Title
+	\vspace{0.5\baselineskip}		
+	% @author\\						% Author
+	%{\large\@subtitle{}}\\			% Subtitle
+%	\makeatletter\@date\makeatother	% Date
+\end{center}
+
+Das folgende Dokument ist eine Zusammenfassung des CAuDri-Challenge Regelwerks.\\ 
+Es dient Schiedsrichtern und teilnehmenden Teams als Referenz und behandelt hauptsächlich die Punktevergabe.\\
+Die Korrektheit und Vollständigkeit der hier gemachten Angaben wird nicht garantiert, im Zweifelsfall gilt immer das offizielle Regelwerk der CAuDri-Challenge.\\
+Der Durchlauf in einer Disziplin startet immer genau dann, wenn die Startbox geöffnet wird.
+Sie schließt sich wieder nach 30 Sekunden.
+
+\section*{Free Drive Course}
+In der Free Drive Disziplin geht es darum, möglichst schnell und ohne Hindernisse durch den Kurs
+zu manövrieren. Bewertet wird die in der vorgegebenen Zeit zurückgelegte Strecke.
+
+Ein \textbf{Verlassen der rechten Fahrspur} liegt vor, wenn \textbf{mindestens zwei Räder} vollständig die rechte bzw. mittlere Fahrbahnmarkierung überschritten haben.
+
+\subsection*{Punktevergabe}
+\begin{itemize}
+  \item Die Fahrzeit beträgt \textbf{2 Minuten}
+  \item Jedes Team startet mit einem Multiplikator von \textbf{1,0}
+  \item Die Gesamtpunktzahl berechnet sich wie folgt:\\
+  
+\fcolorbox{black}{white}{$\text{Punktzahl}\ =\left(\ \text{Zurückgelegte}\ \text{Strecke}\ -\sum_{ }^{ }\text{Strafen}\right)\cdot\sum_{ }^{ }\text{Multiplikatoren}$}
+\end{itemize}
+
+\begin{table}[H]
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Verstoß}                                  & \textbf{Strafe} & \textbf{Maximale Anzahl} \\ \hline
+Verlassen der rechten Spur mit mindestens zwei Rädern & 5 Meter         & $\infty$                 \\ \hline
+Aktivierung des RC-Modus                          & 5 Meter         & $\infty$                 \\ \hline
+Inkorrekte Verwendung des Bremslichts             & 2,5 Meter       & 3                        \\ \hline
+Falsches Abbiegen an Kreuzung                     & 5 Meter         & $\infty$                 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Multiplikator}             & \textbf{Wertung} & \textbf{Maximale Anzahl} \\ \hline
+Starten eines zweiten Fahrversuchs & -0,3             & 1                  \\ \hline
+Aktive WLAN Verbindung beim Fahren & -0,5             & 1                   \\ \hline
+\end{tabular}
+\end{table}
+
+\section*{Navigation Course}
+Wird 2025 nicht bewertet. Plan in der Zukunft: Erst Explorationsphase, danach soll die
+kürzeste Route gefunden werden (zuerst Landmark 1 passieren, dann Landmark 2, ...).
+
+\newpage
+\section*{Obstacle Evasion Course}
+Im Obstacle Evasion Course kommen einige zusätzliche Elemente hinzu: Es existieren
+statische und dynamische Hindernisse auf der Fahrbahn.
+Es gibt mindestens einen "innerörtlichen" Bereich, dort kann es zusätzliche 
+Regeln wie Geschwindigkeitsbegrenzungen geben.
+Außerdem soll dort geparkt werden.\\
+
+Die Bewertung erfolgt hier \textbf{nicht anhand der gefahrenen Strecke}. Jedes Team muss mindestens eine Runde fahren, um die von der Regelwerkskommission festgelegte \textbf{Basispunktzahl} zu
+erhalten. Für die Disziplin gibt es ein zeitliches Maximum von 5 Minuten, innerhalb von welchem alle Elemente aus den ersten \textbf{drei Runden bewertet} werden. Nach drei vollendeten Runden endet der Versuch automatisch.
+
+Für jedes Element, das auf der Strecke vorkommt, erhält das Team in jeder Runde jeweils entweder die \textbf{positive}, \textbf{neutrale} oder \textbf{negative Bewertung}.
+Die Bewertung fällt positiv aus, wenn alle aufgelisteten Bedingungen erfüllt sind.
+Bei leichten oder mittelschweren Verstößen gibt es eine neutrale Bewertung.
+Im Fall von schwerwiegenden Verstößen wie Kollisionen mit Hindernissen und Fußgängern oder 
+dem Überfahren von Stoppstellen folgt eine negative Wertung.
+
+\subsection*{Statische Hindernisse}
+\begin{itemize}
+  \item Das Überholen von Hindernissen muss durch korrektes Blinken eingeleitet werden
+(Blinken wird bei den "Additional Penalties" aufgeführt, zählt also nicht in die Positiv-/
+Neutral-/Negativ-Wertung!)
+  \item Das Hindernis darf nicht berührt werden
+  \item Das Überholmanöver muss spätestens nach 2 Metern beendet sein
+  \item Dazu muss sich das Fahrzeug wieder vollständig in der rechten Fahrbahn befinden
+\end{itemize}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Erfolgreiches Überholen & Einfädelungsdistanz > 2m & Kollision mit Hindernis \\ \hline
+\textbf{+10} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Dynamische Hindernisse}
+\begin{itemize}
+  \item Gleiche Regeln wie für statische Hindernisse, zusätzlich:
+  \item Dynamische Hindernisse dürfen nicht in Kreuzungen überholt werden
+  \begin{itemize}
+  \item Die Bewertung von dyn. Hindernissen in Kreuzungen, die Vorfahrt haben, siehe im
+  Abschnitt Kreuzungen
+  \end{itemize}
+  \item Dynamische Hindernisse dürfen nicht im Überholverbot (durchgezogene Mittellinie) überholt werden
+  \begin{itemize}
+  \item Ein bereits gestartetes Überholmanöver darf im Überholverbot beendet werden
+  \item Weitere Regelungen im Abschnitt "Überholverbotszone"
+  \end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Erfolgreiches (gültiges) Überholen & Einfädelungsdistanz > 2m & Kollision mit Hindernis \\ \hline
+& In Kreuzung überholt & \\ \hline
+\textbf{+15} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Schnellstraßen}
+\begin{itemize}
+ \item (gibt es 2025 nicht)
+%  \item Auf Schnellstraßen dürfen die Fahrzeuge die rechte Fahrspur nicht verlassen
+%  \item Von einem evtl. vorrausfahrenden dynamischen Hindernis muss ein Mindestabstand von 30 cm eingehalten werden bis zum Ende der Zone.
+\end{itemize}
+% \begin{table}[H]
+% \begin{tabular}{|c|c|c|}
+% \hline
+% \rowcolor[HTML]{CACACA} 
+% \textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+% Fahrzeug bleibt in rechter Spur & Fahrzeug setzt zum Überholen an & Kollision mit Hindernis \\ \hline
+% Distanz zu Hindernis > 30cm & Distanz zu Hindernis < 30cm & \\ \hline
+% \textbf{+5} & \textbf{0} & \textbf{-10} \\ \hline
+% \end{tabular}
+% \end{table}
+
+\subsection*{Überholverbotszone}
+\begin{itemize}
+ \item Fahrzeuge dürfen die durchgezogene Linie nicht überfahren
+(Verlassen der Spur auf der rechten Seite wird unter "Additional Penalties" gewertet, nicht hier!)
+ \item Von einem evtl. vorausfahrenden dynamischen Hindernis muss ein Mindestabstand von 30 cm eingehalten werden bis zum Ende der Zone
+ \item Das dynamische Hindernis wird getrennt gewertet (siehe Abschnitt "dynamisches Hindernis",
+ innerhalb der Übeholverbotszone nur \textbf{zusätzliche} negative Wertung möglich)
+\end{itemize}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug überfährt durchgezogene & Distanz zu Hindernis < 30cm & Fahrzeug überfährt durchgezogene \\
+Mittellinie nicht &  & Mittellinie \\ \hline
+Distanz zu Hindernis > 30cm &  & \\ \hline
+\textbf{+5} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+
+\subsection*{Kreuzungen}
+% \begin{table}[H]
+% \begin{tabular}{|c|c|c|}
+% \hline
+% \rowcolor[HTML]{CACACA} 
+% \textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+% Fahrzeug fährt geradeaus & Falsches Abbiegen & Kollision mit Hindernis \\ \hline
+% Fahrzeug hält an/vor Haltelinie & Fahrzeug hält für < 3s & Fahrzeug hält nicht an Haltelinie \\ \hline
+% Distanz zur Halteline 0-15cm & Distanz von der Haltelinie > 15cm & \\ \hline
+% Fahrzeug respektiert Vorfahrt & Fahrzeug respektiert Vorfahrt nicht & \\ \hline
+% & Hindernis hat Kreuzung nicht verlassen & \\ \hline
+% \textbf{+10} & \textbf{0} & \textbf{-10} \\ \hline
+% \end{tabular}
+% \end{table}
+
+\begin{itemize}
+  \item Es gibt verschiedene Designrichtlinien für die Szenarien "innerorts" und "außerorts". Für
+  Streckendesign dazu am besten das Regelwerk lesen. Für die Bewertung ist es nicht relevant,
+  das zu kennen.
+  \item Insgesamt können drei verschiedene Kreuzungstypen auftreten
+  \begin{itemize}
+    \item Kreuzungen mit Stopplinien
+    \item Kreuzungen mit Vorfahrtsstraße und gestrichelten Haltelinien
+    \item Kreuzungen ohne ausgeschriebene Vorfahrtsregeln (es gilt rechts vor links)
+  \end{itemize}
+  \item An Stopplinien muss für mindestens 3 Sekunden gehalten werden
+  \item An gestrichelten Linien muss das Fahrzeug mind. eine Sekunde halten
+  \item Das vordere Ende des Fahrzeugs muss vor der Stopp- bzw. Haltelinie positioniert sein, mit einem Abstand von max. 15cm
+  \item An Kreuzungen kann vorgeschrieben werden, in welche Richtung das Fahrzeug abzubiegen hat
+  \begin{itemize}
+    \item Dies wird durch eine Fahrbahnmarkierung bzw. ein Straßenschild gekennzeichnet
+    \item Dies kann an allen Kreuzungsarten vorkommen, Vorfahrtsregeln müssen beachtet werden
+  \end{itemize}
+  \item Dynamischen Hindernissen muss ggf. Vorfahrt gewährt werden (wird unten \textbf{zusätzlich}
+  bewertet)
+\end{itemize}
+
+\subsubsection*{Kreuzung mit Stopp-/Vorfahrt gewähren-Schild, geradeaus fahren}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält an/vor & Fahrzeug hält für < 3s & Fahrzeug hält nicht an \\
+Stopp-/Haltelinie & (Stopplinie) bzw. <1s (Haltelinie) & Stopplinie \\ \hline
+Distanz zur Halteline 0-15cm & Distanz zur Haltelinie > 15cm & \\ \hline
+Fahrzeug fährt geradeaus & Fahrzeug biegt falsch ab & \\ \hline
+\textbf{+5} & \textbf{0} & \textbf{-5} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Kreuzung mit Rechts-vor-Links, geradeaus fahren}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält an/vor & Fahrzeug hält für < 1s &  \\
+Haltelinie &  &  \\ \hline
+Distanz zur Halteline 0-15cm & Distanz zur Haltelinie > 15cm & \\ \hline
+Fahrzeug fährt geradeaus & Fahrzeug biegt falsch ab & \\ \hline
+\textbf{+10} & \textbf{0} & nicht möglich \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Kreuzung mit Stopp-/Vorfahrt gewähren-Schild, vorgegebene Abbiegerichtung}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält an/vor & Fahrzeug hält für < 3s & Fahrzeug hält nicht an \\
+Stopp-/Haltelinie & (Stopplinie) bzw. <1s (Haltelinie) & Stopplinie \\ \hline
+Distanz zur Halteline 0-15cm & Distanz zur Haltelinie > 15cm & \\ \hline
+Fahrzeug biegt richtig ab & Fahrzeug biegt falsch ab & \\ \hline
+\textbf{+15} & \textbf{0} & \textbf{-5} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Kreuzung mit Rechts-vor-Links, vorgegebene Abbiegerichtung}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält an/vor & Fahrzeug hält für < 1s &  \\
+Haltelinie &  &  \\ \hline
+Distanz zur Halteline 0-15cm & Distanz zur Haltelinie > 15cm & \\ \hline
+Fahrzeug biegt richtig ab & Fahrzeug biegt falsch ab & \\ \hline
+\textbf{+10} & \textbf{0} & nicht möglich \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Dynamische Hindernisse an Kreuzungen}
+(Bewertung \textbf{zusätzlich} zu den vorangegangenen Scoring-Tabellen)
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug respektiert Vorfahrt & Fahrzeug respektiert Vorfahrt nicht & Kollision mit Hindernis \\ \hline
+& Hindernis hat Kreuzung nicht verlassen & \\ \hline
+\textbf{+10} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Sperrflächen}
+\begin{itemize}
+  \item Sperrflächen können einzelne Fahrbahnen blockieren
+  \item Sperrflächen müssen genau wie statische Hindernisse umfahren werden
+  \item Einem entgegenkommenden dynamischem Hindernis, welches weniger als 1m von der Sperrfläche entfernt ist, muss Vorfahrt gewährt werden. Dabei gilt es zu blinken. (Blinken wird bei den "Additional Penalties" aufgeführt, zählt also nicht in die Positiv-/
+Neutral-/Negativ-Wertung!)
+\end{itemize}
+
+\subsubsection*{Bewertung der Sperrfläche}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug umfährt Sperrfläche & Fahrzeug befährt Sperrfläche &  \\ \hline
+\textbf{+10} & \textbf{0} & nicht möglich \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Bewertung des entgegenkommenden Hindernisses}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug respektiert Vorfahrt & Fahrzeug respektiert Vorfahrt nicht & Kollision mit Hindernis \\ \hline
+\textbf{+5} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Zebrastreifen}
+\begin{itemize}
+  \item Stehen ein oder mehrere Fußgänger am Zebrastreifen, muss das Fahrzeug diese passieren lassen
+\end{itemize}
+Falls Fußgänger anwesend:
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält an Zebrastreifen & Fahrzeug hält für < 3s an Zebrastreifen & Kollision mit Fußgänger \\ \hline
+Fußgänger konnten Zebrastreifen queren & Haltedistanz > 15cm & \\ \hline
+& Fußgänger konnten nicht vollständig queren & \\ \hline
+\textbf{+15} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+Falls keine Fußgänger anwesend:
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug hält nicht & Fahrzeug hält an &  \\ \hline
+\textbf{+10} & \textbf{0} & nicht möglich \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Parken}
+\begin{itemize}
+  \item Nur für das Ein- und Ausparken darf die Gegenfahrbahn betreten werden
+  \item Fahren im RC-Mode beim Parken ist nicht erlaubt, außer das Fahrzeug verlässt die Parkbucht
+  \begin{itemize}
+    \item Das Eingreifen ist erst erlaubt, wenn mehr als ein Rad die Fahrbahnbegrenzung überschritten hat
+    \item Die Bewertung ist dann maximal neutral
+  \end{itemize}
+  \item Das Parken ist einmal in jeder Runde erlaubt
+  \item Der Start eines Parkversuchs muss durch Blinken eingeleitet werden
+  \item Ein erfolgreiches Parkmanöver muss angezeigt werden, indem das Fahrzeug zum Stillstand kommt und mit allen Blinkern mindestens einmal blinkt
+  \item Für einen erfolgreichen Parkversuch müssen alle Räder innerhalb der Parkbucht platziert sein
+  \item Der Parkversuch ist dann zu Ende, wenn sich das Fahrzeug in der rechten Fahrspur mit mindestens drei Rädern befindet und sich in die positive Fahrtrichtung bewegt. Bis zu diesem Zeitpunkt kann es für den Parkversuch Punktabzüge geben, z.B. bei Kollisionen mit Hindernissen.
+\end{itemize}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Positiv} & \textbf{Neutral} & \textbf{Negativ} \\ \hline
+Fahrzeug parkt korrekt & Fahrzeug parkt nicht korrekt & Kollision mit Hindernis \\
+in einem gültigen Parkplatz &  &  \\ \hline
+Alle Räder befinden sich innerhalb & Es wurde kein oder es & \\
+der Parkplatzbegrenzungen & wurden mehrere Parkmanöver ausgeführt & \\ \hline
+& Aktivierung des RC-Modus & \\ \hline
+\textbf{+20} & \textbf{0} & \textbf{-10} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Punktevergabe}
+\begin{itemize}
+  \item Die Fahrzeit beträgt \textbf{5 Minuten}
+  \item Es können maximal \textbf{3 Runden} gefahren werden, danach endet der Versuch
+  \item Es muss mindestens eine Runde gefahren werden
+  \item Jedes Team startet mit einer fixen Basispunktzahl
+  \item An jedem Hindernis wird entweder eine positive, neutrale oder negative Wertung vergeben
+  \item Im RC-Modus können nie positive Punkte erzielt werden; Bewertungsrichtlinien für
+  neutral/negativ bleiben bestehen
+  \item Werden im RC-Mode Challenges übersprungen, erhält man dafür die negative Bewertung/Punktzahl
+  \item Die Gesamtpunktzahl berechnet sich aus der Summe der Basispunktzahl und den während des Wettbewerbs erreichten/verloren Punkten
+\end{itemize}
+
+
+\begin{table}[H]
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor[HTML]{CACACA} 
+\textbf{Multiplikator}                 & \textbf{Wertung} & \textbf{Maximale Anzahl} \\ \hline
+Starten eines zweiten Fahrversuchs     & -0,5 x Basispunkte & 1                      \\ \hline
+Aktive WLAN Verbindung beim Fahren     & -0,5 x Basispunkte & 1                      \\ \hline
+Geschwindigkeitsbegrenzung überschritten & -5             & $\infty$                 \\ \hline
+Aktivierung des RC-Modus               & -5               & $\infty$                 \\ \hline
+Verlassen der rechten Fahrspur         & -2               & 10                       \\ \hline
+Kollision mit Schild                   & -5               & $\infty$                 \\ \hline
+Blinker falsch eingesetzt              & -2               & 10                       \\ \hline
+\end{tabular}
+\end{table}
+
+\end{document}
