@@ -60,7 +60,7 @@
 % clear existing header/footer entries
 \fancyhf{}
 % Header and footer definitions
-\fancyhead[L]{\large CAuDri-Challenge 2025\\
+\fancyhead[L]{\large CAuDri-Challenge 2026\\
               \large\Subtitle}
 \fancyhead[R]{\includegraphics[width=5cm]{graphics/caudri_logo_no_border.jpg}\hspace{-5mm}
               \vspace{-2mm}}
@@ -127,15 +127,46 @@ Falsches Abbiegen an Kreuzung                     & 5 Meter         & $\infty$  
 \rowcolor[HTML]{CACACA} 
 \textbf{Multiplikator}             & \textbf{Wertung} & \textbf{Maximale Anzahl} \\ \hline
 Starten eines zweiten Fahrversuchs & -0,3             & 1                  \\ \hline
-Aktive WLAN Verbindung beim Fahren & -0,5             & 1                   \\ \hline
+Aktive WLAN-Verbindung beim Fahren & -0,5             & 1                   \\ \hline
 \end{tabular}
 \end{table}
 
 \section*{Navigation Course}
-Wird 2025 nicht bewertet. Plan in der Zukunft: Erst Explorationsphase, danach soll die
-kürzeste Route gefunden werden (zuerst Landmark 1 passieren, dann Landmark 2, ...).
+Die Navigationsdisziplin besteht aus der Explorationsphase und der Navigationsphase.
+Für die Auswertung wird die während der Navigationsphase zurückgelegte Strecke in Betracht gezogen.
+Während beider Phasen kann regelwidriges Fahrverhalten zu Strafen führen. Bei einer Aktivierung des RC-Modes
+ist darauf zu achten, dass durch den Eingriff die autonome Entscheidungsfindung des Fahrzeugs nicht beeinflusst
+wurde. Andernfalls kann der Versuch als ungültig gewertet werden.
 
-\newpage
+\begin{table}[H]
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor[HTML]{CACACA}
+\textbf{Verstoß}                                  & \textbf{Strafe} & \textbf{Maximale Anzahl} \\ \hline
+Verlassen der rechten Spur mit mindestens zwei Rädern & 1 Meter         & $\infty$                 \\ \hline
+Aktivierung des RC-Modus                          & 1 Meter         & $\infty$                 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor[HTML]{CACACA}
+\textbf{Multiplikator}             & \textbf{Wertung} & \textbf{Maximale Anzahl} \\ \hline
+Starten eines zweiten Fahrversuchs & -0,3             & 1                  \\ \hline
+Aktive WLAN-Verbindung beim Fahren & -0,5             & 1                   \\ \hline
+\end{tabular}
+\end{table}
+
+Das primäre Bewertungskriterium ist eine möglichst hohe Anzahl besuchter Landmarken in der vorgegebenen Reihenfolge,
+wobei keine Landmarke übersprungen werden darf. Werden zwischen zwei vorgegebenen Landmarken weitere Landmarken
+passiert, beeinflussen diese das primäre Bewertungskriterium nicht. Erreichen zwei oder mehr Teams hier dieselbe
+Bewertung, entscheidet die erreichte Punktzahl über die Platzierung:
+
+\
+
+\fcolorbox{black}{white}{$\text{Punktzahl}\ =\text{Basispunkte}\cdot\sum_{ }^{ }\text{Multiplikatoren}\cdot\frac{\text{Minimale}\ \text{Strecke}}{\text{Zurückgelegte}\ \text{Strecke}\ +\sum_{ }^{ }\text{Strafen}}$}
+
+
 \section*{Obstacle Evasion Course}
 Im Obstacle Evasion Course kommen einige zusätzliche Elemente hinzu: Es existieren
 statische und dynamische Hindernisse auf der Fahrbahn.
@@ -199,7 +230,7 @@ Erfolgreiches (gültiges) Überholen & Einfädelungsdistanz > 2m & Kollision mit
 
 \subsection*{Schnellstraßen}
 \begin{itemize}
- \item (gibt es 2025 nicht)
+ \item (gibt es 2026 nicht)
 %  \item Auf Schnellstraßen dürfen die Fahrzeuge die rechte Fahrspur nicht verlassen
 %  \item Von einem evtl. vorrausfahrenden dynamischen Hindernis muss ein Mindestabstand von 30 cm eingehalten werden bis zum Ende der Zone.
 \end{itemize}
@@ -454,7 +485,7 @@ der Parkplatzbegrenzungen & wurden mehrere Parkmanöver ausgeführt & \\ \hline
 \rowcolor[HTML]{CACACA} 
 \textbf{Multiplikator}                 & \textbf{Wertung} & \textbf{Maximale Anzahl} \\ \hline
 Starten eines zweiten Fahrversuchs     & -0,5 x Basispunkte & 1                      \\ \hline
-Aktive WLAN Verbindung beim Fahren     & -0,5 x Basispunkte & 1                      \\ \hline
+Aktive WLAN-Verbindung beim Fahren     & -0,5 x Basispunkte & 1                      \\ \hline
 Geschwindigkeitsbegrenzung überschritten & -5             & $\infty$                 \\ \hline
 Aktivierung des RC-Modus               & -5               & $\infty$                 \\ \hline
 Verlassen der rechten Fahrspur         & -2               & 10                       \\ \hline
